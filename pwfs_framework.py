@@ -15,7 +15,7 @@ class PartialFunction(Generic[I, O]):
 
 
 class Component(PartialFunction[I, O]):
-    def __init__(self, region: Region[I, O], function: PartialFunction[I, O]):
+    def __init__(self, region: Region[I], function: PartialFunction[I, O]):
         self.region = region
         self.function = function
 
