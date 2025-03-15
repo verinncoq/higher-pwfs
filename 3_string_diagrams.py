@@ -23,9 +23,9 @@ class StringComponent(pwfs_framework.Component, StringAlgebra):
         return super().evaluate(x)
 
 
-class StringPiecewiseFunction(pwfs_framework.PiecewiseFunction, StringAlgebra):
+class StringPiecewiseFunction(pwfs_framework.PiecewiseFunction, StringComponent, StringAlgebra):
 
-    def __init__(self, components: List[StringAlgebra]):
+    def __init__(self, components: List[StringComponent]):
         self.string_components = list(components)
         super().__init__(components)
 
