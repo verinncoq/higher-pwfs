@@ -15,11 +15,11 @@ class SelectorPiecewiseFunction(pwfs_framework.PiecewiseFunction):
 
     def evaluate(self, x):
         # 1 in 5 chance to select a random implementation
-        use_best_impl = random.randint(0, 1) == 1
+        use_best_impl = random.randint(0, 4) != 0
         selected_idx = None
         if use_best_impl:
             selected_idx = self.components.index(
-                max(self.components, key=lambda x: x[0]))
+                min(self.components, key=lambda x: x[0]))
         else:
             selected_idx = random.randrange(len(self.components))
         avg_time, num_trials, selected_impl = self.components[selected_idx]
