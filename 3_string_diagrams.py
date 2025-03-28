@@ -11,7 +11,7 @@ class StringAlgebra:
         return None
 
 
-class StringComponent(pwfs_framework.Component, StringAlgebra):
+class StringSegment(pwfs_framework.Segment, StringAlgebra):
 
     def compose(self, f):
         return super().compose(f)
@@ -23,28 +23,28 @@ class StringComponent(pwfs_framework.Component, StringAlgebra):
         return super().evaluate(x)
 
 
-class StringPiecewiseFunction(pwfs_framework.PiecewiseFunction, StringComponent, StringAlgebra):
+class StringPiecewiseFunction(pwfs_framework.PiecewiseFunction, StringSegment, StringAlgebra):
 
-    def __init__(self, components: List[StringComponent]):
-        self.string_components = list(components)
-        super().__init__(components)
+    def __init__(self, segments: List[StringSegment]):
+        self.string_segments = segments
+        super().__init__(segments)
 
     def compose(self, f):
-        result_components = []
-        for component in self.string_components:
-            for f_component in f.string_components:
-                new_component = component.compose(f_component)
-                if new_component is None:
+        result_segments = []
+        for segment in self.string_segments:
+            for f_segment in f.string_segments:
+                new_segment = segment.compose(f_segment)
+                if new_segment is None:
                     return None
-                result_components.append(new_component)
-        return StringPiecewiseFunction(result_components)
+                result_segments.append(new_segment)
+        return StringPiecewiseFunction(result_segments)
 
     def concat(self, f):
-        result_components = []
-        for component in self.string_components:
-            for f_component in f.string_components:
-                new_component = component.concat(f_component)
-                if new_component is None:
+        result_segments = []
+        for segment in self.string_segments:
+            for f_segment in f.string_segments:
+                new_segment = segment.concat(f_segment)
+                if new_segment is None:
                     return None
-                result_components.append(new_component)
-        return StringPiecewiseFunction(result_components)
+                result_segments.append(new_segment)
+        return StringPiecewiseFunction(result_segments)

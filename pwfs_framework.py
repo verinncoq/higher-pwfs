@@ -14,7 +14,7 @@ class PartialFunction(Generic[I, O]):
         return None
 
 
-class Component(PartialFunction[I, O]):
+class Segment(PartialFunction[I, O]):
     def __init__(self, region: Region[I], function: PartialFunction[I, O]):
         self.region = region
         self.function = function
@@ -26,13 +26,13 @@ class Component(PartialFunction[I, O]):
             return None
 
 
-class PiecewiseFunction(Component[I, O]):
-    def __init__(self, components: Iterable[Component[I, O]]):
-        self.components = components
+class PiecewiseFunction(Segment[I, O]):
+    def __init__(self, segments: Iterable[Segment[I, O]]):
+        self.segments = segments
 
     def evaluate(self, x: I) -> Optional[O]:
-        for component in self.components:
-            result = component.evaluate(x)
+        for segment in self.segments:
+            result = segment.evaluate(x)
             if result != None:
                 return result
         return None
