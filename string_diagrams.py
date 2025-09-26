@@ -34,9 +34,8 @@ class StringPiecewiseFunction(pwfs_framework.PiecewiseFunction, StringSegment, S
         for segment in self.string_segments:
             for f_segment in f.string_segments:
                 new_segment = segment.compose(f_segment)
-                if new_segment is None:
-                    return None
-                result_segments.append(new_segment)
+                if new_segment is not None:
+                    result_segments.append(new_segment)
         return StringPiecewiseFunction(result_segments)
 
     def concat(self, f):
@@ -44,7 +43,6 @@ class StringPiecewiseFunction(pwfs_framework.PiecewiseFunction, StringSegment, S
         for segment in self.string_segments:
             for f_segment in f.string_segments:
                 new_segment = segment.concat(f_segment)
-                if new_segment is None:
-                    return None
-                result_segments.append(new_segment)
+                if new_segment is not None:
+                    result_segments.append(new_segment)
         return StringPiecewiseFunction(result_segments)

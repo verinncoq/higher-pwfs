@@ -29,6 +29,6 @@ class SelectorPiecewiseFunction(pwfs_framework.PiecewiseFunction):
         elapsed_secs = end - start
         new_num_trials = num_trials + 1
         new_avg_time = avg_time + (elapsed_secs - avg_time) / new_num_trials
-        self.segments.index[selected_idx] = (
+        self.segments[selected_idx] = (
             new_avg_time, new_num_trials, selected_impl)
         return result
