@@ -6,9 +6,11 @@ import pwfs_framework
 class SetAlgebra:
 
     def intersection(self, s):
+        # Mock implementation, not covered by tests
         return self
 
     def is_empty(self) -> bool:
+        # Mock implementation, not covered by tests
         return True
 
 
@@ -34,10 +36,11 @@ class FastPartition:
         self.regions = list(regions)
 
     def get_index(self, x):
-        # Fast implementation
+        # Mock implementation, not covered by tests
         return 0
 
     def find_region(self, x):
+        # Mock implementation, not covered by tests
         i = self.get_index(x)
         if i is None:
             return None

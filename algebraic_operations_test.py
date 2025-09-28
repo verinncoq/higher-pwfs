@@ -1,11 +1,11 @@
 import unittest
-import string_diagrams
+import algebraic_operations
 import pwfs_framework
 
 # Implementation of a segment supporting string algebra
 
 
-class StringAffineSegment(string_diagrams.StringSegment):
+class StringAffineSegment(algebraic_operations.StringSegment):
 
     # Arguments:
     # dim - dimension of the element
@@ -78,19 +78,19 @@ class TestStringAlgebras(unittest.TestCase):
         segment24 = StringAffineSegment(1, [0.75], [1.0], [3.0], [-2.25])
 
         # First-level piecewise functions
-        pwaf11 = string_diagrams.StringPiecewiseFunction(
+        pwaf11 = algebraic_operations.StringPiecewiseFunction(
             [segment11, segment12])
-        pwaf12 = string_diagrams.StringPiecewiseFunction(
+        pwaf12 = algebraic_operations.StringPiecewiseFunction(
             [segment13, segment14])
 
-        pwaf21 = string_diagrams.StringPiecewiseFunction(
+        pwaf21 = algebraic_operations.StringPiecewiseFunction(
             [segment21, segment22])
-        pwaf22 = string_diagrams.StringPiecewiseFunction(
+        pwaf22 = algebraic_operations.StringPiecewiseFunction(
             [segment23, segment24])
 
         # Nested piecewise functions
-        self.npwaf1 = string_diagrams.StringPiecewiseFunction([pwaf11, pwaf12])
-        self.npwaf2 = string_diagrams.StringPiecewiseFunction([pwaf21, pwaf22])
+        self.npwaf1 = algebraic_operations.StringPiecewiseFunction([pwaf11, pwaf12])
+        self.npwaf2 = algebraic_operations.StringPiecewiseFunction([pwaf21, pwaf22])
 
         # Prepare some sample inputs that not lie on interval boundaries
         self.sample_inputs = [0.1, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 0.9, 1.1]

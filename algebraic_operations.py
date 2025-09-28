@@ -5,21 +5,26 @@ import pwfs_framework
 class StringAlgebra:
 
     def compose(self, f):
+        # Mock implementation, not covered by tests
         return None
 
     def concat(self, f):
+        # Mock implementation, not covered by tests
         return None
 
 
 class StringSegment(pwfs_framework.Segment, StringAlgebra):
 
     def compose(self, f):
+        # Mock implementation, not covered by tests
         return super().compose(f)
 
     def concat(self, f):
+        # Mock implementation, not covered by tests
         return super().concat(f)
 
     def evaluate(self, x):
+        # Mock implementation, not covered by tests
         return super().evaluate(x)
 
 
