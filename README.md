@@ -1,7 +1,5 @@
 # Towards a Software Framework for Nested Piecewise Functions
 
-by [Andrei Aleksandrov](https://github.com/Zawuza) and [Kim Völlinger](https://github.com/KimVoellinger).
-
 ## Overview
 
 A piecewise function is defined by cases over a partitioned domain, such as the sign function 
